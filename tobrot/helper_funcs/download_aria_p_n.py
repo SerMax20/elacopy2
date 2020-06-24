@@ -81,7 +81,7 @@ def add_magnet(aria_instance, magnetic_link, c_file_name):
             options=options
         )
     except Exception as e:
-        return False, "**FAILED** \n" + str(e) + " \nPlease do not send SLOW links. Read /help"
+        return False, "**FAILED** \n" + str(e) + " \nPlease do not send SLOW links"
     else:
         return True, "" + download.gid + ""
 
@@ -99,7 +99,7 @@ def add_torrent(aria_instance, torrent_file_path):
                 position=None
             )
         except Exception as e:
-            return False, "**FAILED** \n" + str(e) + " \nPlease do not send SLOW links. Read /help"
+            return False, "**FAILED** \n" + str(e) + " \nPlease do not send SLOW links."
         else:
             return True, "" + download.gid + ""
     else:
@@ -120,7 +120,7 @@ def add_url(aria_instance, text_url, c_file_name):
             options=options
         )
     except Exception as e:
-        return False, "**FAILED** \n" + str(e) + " \nPlease do not send SLOW links. Read /help"
+        return False, "**FAILED** \n" + str(e) + " \nPlease do not send SLOW links."
     else:
         return True, "" + download.gid + ""
 
@@ -222,7 +222,7 @@ async def call_apropriate_function(
         message_id = final_response[key_f_res_se]
         channel_id = str(AUTH_CHANNEL)[4:]
         private_link = f"https://t.me/c/{channel_id}/{message_id}"
-        message_to_send += "👉 <a href='"
+        message_to_send += "💢 <a href='"
         message_to_send += private_link
         message_to_send += "'>"
         message_to_send += local_file_name
@@ -233,7 +233,7 @@ async def call_apropriate_function(
         message_to_send = mention_req_user + message_to_send
         message_to_send = message_to_send + "\n\n" + "#uploads"
     else:
-        message_to_send = "<i>FAILED</i> to upload files. 😞😞"
+        message_to_send = "<i>FAILED</i> to upload files. ☹ "
     await sent_message_to_update_tg_p.reply_to_message.reply_text(
         text=message_to_send,
         quote=True,
@@ -330,53 +330,9 @@ async def call_apropriate_function_g(
         to_upload_file,
         sent_message_to_update_tg_p
     )
-#
-async def call_apropriate_function_t(
-    to_upload_file_g,
-    sent_message_to_update_tg_p,
-    is_unzip,
-    is_unrar,
-    is_untar
-):
-    #
-    to_upload_file = to_upload_file_g
-    if is_unzip:
-        check_ifi_file = await unzip_me(to_upload_file_g)
-        if check_ifi_file is not None:
-            to_upload_file = check_ifi_file
-    #
-    if is_unrar:
-        check_ife_file = await unrar_me(to_upload_file_g)
-        if check_ife_file is not None:
-            to_upload_file = check_ife_file
-    #
-    if is_untar:
-        check_ify_file = await untar_me(to_upload_file_g)
-        if check_ify_file is not None:
-            to_upload_file = check_ify_file
-    #
-    response = {}
-    LOGGER.info(response)
-    user_id = sent_message_to_update_tg_p.reply_to_message.from_user.id
-    final_response = await upload_to_gdrive(
-        to_upload_file,
-        sent_message_to_update_tg_p
-    )
-    LOGGER.info(final_response)
-    #if to_upload_file:
-        #if CUSTOM_FILE_NAME:
-            #os.rename(to_upload_file, f"{CUSTOM_FILE_NAME}{to_upload_file}")
-            #to_upload_file = f"{CUSTOM_FILE_NAME}{to_upload_file}"
-        #else:
-            #to_upload_file = to_upload_file
 
-    #if cstom_file_name:
-        #os.rename(to_upload_file, cstom_file_name)
-        #to_upload_file = cstom_file_name
-    #else:
-        #to_upload_file = to_upload_file
     '''
-    
+
     LOGGER.info(final_response)
     message_to_send = ""
     for key_f_res_se in final_response:
@@ -384,7 +340,7 @@ async def call_apropriate_function_t(
         message_id = final_response[key_f_res_se]
         channel_id = str(AUTH_CHANNEL)[4:]
         private_link = f"https://t.me/c/{channel_id}/{message_id}"
-        message_to_send += "👉 <a href='"
+        message_to_send += "💢 <a href='"
         message_to_send += private_link
         message_to_send += "'>"
         message_to_send += local_file_name
@@ -395,7 +351,7 @@ async def call_apropriate_function_t(
         message_to_send = mention_req_user + message_to_send
         message_to_send = message_to_send + "\n\n" + "#uploads"
     else:
-        message_to_send = "<i>FAILED</i> to upload files. 😞😞"
+        message_to_send = "<i>FAILED</i> to upload files.☹"
     await sent_message_to_update_tg_p.reply_to_message.reply_text(
         text=message_to_send,
         quote=True,
@@ -425,15 +381,15 @@ async def check_progress_for_dl(aria2, gid, event, previous_message):
                 except:
                     pass
                 #
-                msg = f"\nDownloading File: `{downloading_dir_name}`"
-                msg += f"\nSpeed: {file.download_speed_string()} 🔽 / {file.upload_speed_string()} 🔼"
-                msg += f"\nProgress: {file.progress_string()}"
-                msg += f"\nTotal Size: {file.total_length_string()}"
+                msg = f"\n📥Downloading📤File: `{downloading_dir_name}`"
+                msg += f"\n🚤Speed: {file.download_speed_string()} 🔽 / {file.upload_speed_string()} 🔼"
+                msg += f"\n䷢Progress: {file.progress_string()}"
+                msg += f"\n⚙Total Size: {file.total_length_string()}"
 
                 if is_file is None :
-                   msg += f"\n<b>Connections:</b> {file.connections}"
+                   msg += f"\n<b>🖧Connections:</b> {file.connections}"
                 else :
-                   msg += f"\n<b>Info:</b>[ P : {file.connections} || S : {file.num_seeders} ]"
+                   msg += f"\n<b>💁Info:</b>[ P : {file.connections} || S : {file.num_seeders} ]"
 
                 # msg += f"\nStatus: {file.status}"
                 msg += f"\nETA: {file.eta_string()}"
@@ -449,16 +405,16 @@ async def check_progress_for_dl(aria2, gid, event, previous_message):
             await asyncio.sleep(EDIT_SLEEP_TIME_OUT)
             await check_progress_for_dl(aria2, gid, event, previous_message)
         else:
-            await event.edit(f"File Downloaded Successfully: `{file.name}`")
+            await event.edit(f"File 📥 Downloaded Successfully: `{file.name}`")
             return True
     except Exception as e:
         LOGGER.info(str(e))
         if " not found" in str(e) or "'file'" in str(e):
-            await event.edit("Download Canceled :\n`{}`".format(file.name))
+            await event.edit("Download ❌Canceled :\n`{}`".format(file.name))
             return False
         elif " depth exceeded" in str(e):
             file.remove(force=True)
-            await event.edit("Download Auto Canceled :\n`{}`\nYour Torrent/Link is Dead.".format(file.name))
+            await event.edit("Download Auto ❌Canceled :\n`{}`\nYour Torrent/Link is ⛔Dead.".format(file.name))
             return False
         else:
             LOGGER.info(str(e))
