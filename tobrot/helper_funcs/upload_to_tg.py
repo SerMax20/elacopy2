@@ -86,9 +86,9 @@ async def upload_to_tg(
             LOGGER.info("TODO")
             d_f_s = humanbytes(os.path.getsize(local_file_name))
             i_m_s_g = await message.reply_text(
-                "Telegram does not support uploading this file.\n"
+                "Telegram does not support uploading this file Too Big.\n"
                 f"Detected File Size: {d_f_s} 😡\n"
-                "\n🤖 trying to split the files 🌝🌝🌚"
+                "\n🤖 trying to split the files.Wait... 🌝🌝🌚"
             )
             splitted_dir = await split_large_files(local_file_name)
             totlaa_sleif = os.listdir(splitted_dir)
@@ -99,7 +99,7 @@ async def upload_to_tg(
             await i_m_s_g.edit_text(
                 f"Detected File Size: {d_f_s} 😡\n"
                 f"<code>{ba_se_file_name}</code> splitted into {number_of_files} files.\n"
-                "trying to upload to Telegram, now ..."
+                "trying to 📤 upload to Telegram, now ..."
             )
             for le_file in totlaa_sleif:
                 # recursion: will this FAIL somewhere?
@@ -135,9 +135,8 @@ async def upload_to_gdrive(file_upload, message):
         print(out)
         indexurl = f"{INDEX_LINK}/{file_upload}"
         g_link = requote_uri(indexurl)
-        time.sleep(4)
-        await message.edit_text(f'{file_upload} has been Uploaded successfully to your cloud 🤒\n\n Index Url: <a href="{g_link}">here</a>')
-        #os.remove(file_upload)
+        await message.edit_text(f'{file_upload} has been Uploaded successfully to your cloud 🤒\n\n Direct Downlaod link: <a href="{g_link}">here</a>')
+        os.remove(file_upload)
     else:
         tt= os.path.join(destination, file_upload)
         print(tt)
@@ -146,9 +145,8 @@ async def upload_to_gdrive(file_upload, message):
         print(out)
         indexurl = f"{INDEX_LINK}/{file_upload}/"
         g_link = requote_uri(indexurl)
-        time.sleep(4)
-        await message.edit_text(f'Folder has been Uploaded successfully to {tt} in your cloud 🤒\n\n Index Url: <a href="{g_link}">here</a>')
-        #shutil.rmtree(file_upload)
+        await message.edit_text(f'Folder has been Uploaded successfully to {tt} in your cloud 🤒\n\n Direct Downlaod link: <a href="{g_link}">here</a>')
+        shutil.rmtree(file_upload)
 
 #
 
