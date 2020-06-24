@@ -1,6 +1,3 @@
-# for support join here [TorrentLeech-Gdrive](https://telegram.dog/torrentleechgdrivesupport)
-# working example group [Leech Here](https://telegram.dog/torrentleechgdrive)
-
 # Telegram Torrent Leecher 🔥🤖
 
 A Telegram Torrent (and youtube-dl) Leecher based on [Pyrogram](https://github.com/pyrogram/pyrogram)
@@ -21,7 +18,7 @@ A Telegram Torrent (and youtube-dl) Leecher based on [Pyrogram](https://github.c
 
 ### The Easy Way
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/SerMax20/elacopy)
 
 ### The Legacy Way
 Simply clone the repository and run the main file:
