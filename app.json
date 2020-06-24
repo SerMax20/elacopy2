@@ -14,9 +14,9 @@
     "youtube-dl",
     "leecher"
   ],
-  "repository": "https://github.com/gautamajay52/TorrentLeech-Gdrive",
-  "success_url": "https://t.me/torrentleechgdrivesupport",
-  "website": "https://github.com/gautamajay52/TorrentLeech-Gdrive",
+  "repository": "https://github.com/SerMax20/elacopy/",
+  "success_url": "https://t.me/",
+  "website": "https://github.com/SerMax20/elacopy/",
   "env": {
     "ENV": {
       "description": "Setting this to ANYTHING will enable webhooks when in env mode",
@@ -70,7 +70,7 @@
       "required": false
     },
     "LEECH_COMMAND": {
-      "description": "Enter your custom leech command like /leech@urgroupname and so on. Default is /leech",
+      "description": "Enter your custom leech command like leech@urgroupname and so on. Default is leech",
       "required": false
     },
     "INDEX_LINK": {
@@ -78,19 +78,15 @@
       "required": false
     },
     "GLEECH_COMMAND": {
-      "description": "Enter your custom gleech command like /gleech1@urgroupname and so on. Default is /gleech",
-      "required": false
-    },
-    "TELEGRAM_LEECH_COMMAND_G": {
-      "description": "Enter your custom tleech command like /tleech1@urgroupname and so on. Default is /tleech",
+      "description": "Enter your custom gleech command like gleech1@urgroupname and so on. Default is gleech",
       "required": false
     },
     "YTDL_COMMAND": {
-      "description": "Enter your custom ytdl command like ytdl1@urgroupname and so on. Default is /ytdl.",
+      "description": "Enter your custom ytdl command like ytdl1@urgroupname and so on. Default is ytdl.",
       "required": false
     },
     "RCLONE_CONFIG": {
-      "description": "Enter your copied text from rclone config. Compulsory for /gleech as well as /tleech command ",
+      "description": "Enter your copied text from rclone config. Compulsory for /gleech command ",
       "required": false
     },
     "DESTINATION_FOLDER": {
@@ -99,6 +95,18 @@
     },
     "CUSTOM_FILE_NAME": {
       "description": "fill with name u want to prefix the file name like ur channel username🙊, keep empty for do nothing, but add to ur config vars even without input.",
+      "required": false
+    },
+    "MAX_FILE_SIZE": {
+      "description": "Enter your Max gleech Downloding File Size.",
+      "required": false
+    },
+    "TG_MAX_FILE_SIZE": {
+      "description": "Enter your Max leech Downloding File Size.",
+      "required": false
+    },
+    "MAX_TG_SPLIT_FILE_SIZE": {
+      "description": "Enter your Max leech split Size.",
       "required": false
     }
   },
